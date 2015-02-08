@@ -22,7 +22,8 @@ PowerCons$Global_reactive_power <- as.numeric(levels(PowerCons$Global_reactive_p
 #Convert date and time to POSIX
 DateTime <- as.POSIXct(paste(as.Date(PowerCons$Date,format="%d/%m/%Y"), PowerCons$Time, sep=" "))
 
-#Plot (top left, top right, bottom left, bottom right)
+#Plot (top left, top right, bottom left, bottom right) and save to PNG
+png('plot4.png')
 par(mfrow = c(2,2))
   plot(DateTime, PowerCons$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = " ")
 
@@ -34,3 +35,4 @@ par(mfrow = c(2,2))
     legend('topright', bty = "n",lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
   plot(DateTime, PowerCons$Global_reactive_power, type = "l", ylab = "Global_reactive_power", xlab = "datetime")
+dev.off()

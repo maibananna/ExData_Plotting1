@@ -17,8 +17,10 @@ Sub3 <- PowerCons[,c("Sub_metering_3")]
 #Convert date and time to POSIX
 DateTime <- as.POSIXct(paste(as.Date(plot2data$Date,format="%d/%m/%Y"), plot2data$Time, sep=" "))
 
-#Plot
+#Plot and save to PNG
+png('plot3.png')
 plot(DateTime, Sub1, type = "l", ylim = c(0,40), ylab = "Energy Sub Metering")
 lines(DateTime,Sub2,col="red")
 lines(DateTime, Sub3, col = "blue")
 legend('topright', lty = 1, col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+dev.off()

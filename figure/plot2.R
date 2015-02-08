@@ -18,9 +18,8 @@ PowerCons$Global_active_power <- as.numeric(levels(PowerCons$Global_active_power
 plot2data <- PowerCons[, c("Date", "Time", "Global_active_power")]
 DateTime <- as.POSIXct(paste(as.Date(plot2data$Date,format="%d/%m/%Y"), plot2data$Time, sep=" "))
 
-#Plot
+#Plot and save to PNG
+png('plot2.png')
 plot(DateTime, plot2data$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)")
-
-#Save plot to PNG
-dev.copy(png,"plot2.png")
 dev.off()
+

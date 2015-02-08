@@ -17,9 +17,7 @@ PowerCons$Global_active_power <- as.numeric(levels(PowerCons$Global_active_power
 #Load ggplot
 library(ggplot2)
 
-#Histogram of Global Active Power
+#Plot Histogram of Global Active Power and save to PNG
+png('plot1.png')
 hist(PowerCons$Global_active_power, main = "Global Active Power", col = "red", xlab = "Global Active Power (kilowatts)")
-
-#Save plot to PNG
-dev.copy(png,"plot1.png")
 dev.off()
